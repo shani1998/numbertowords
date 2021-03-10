@@ -5,12 +5,12 @@ import "testing"
 func TestInvalidInput(t *testing.T) {
 	result, err := Convert(-1)
 	if result != "" || err == nil {
-		t.Fatalf("failed test for input -1")
+		t.Fatal("failed test for input -1")
 	}
 
 	result, err = Convert(100000)
 	if result != "" || err == nil {
-		t.Fatalf("failed test for input 10000")
+		t.Fatal("failed test for input 100000")
 	}
 }
 
@@ -27,6 +27,7 @@ func TestUnits(t *testing.T) {
 		8: "eight",
 		9: "nine",
 	}
+
 	for number, word := range testcases {
 		result, err := Convert(number)
 		if result != word || err != nil {
